@@ -7,6 +7,9 @@ def index(request):
 
 
 def traduzir(request):
+    if request.method == 'POST' and not request.FILES.get('arquivo'):
+        return render(request, 'core/index.html', {'erro': 'Selecione um arquivo .txt antes de continuar.'})
+
     if request.method == 'POST' and request.FILES.get('arquivo'):
         arquivo = request.FILES['arquivo']
 
