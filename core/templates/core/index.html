@@ -1,133 +1,126 @@
 {% load static %}
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TraduzAí — Tradutor de Arquivos</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link href="{% static 'core/css/style.css' %}" rel="stylesheet" />
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TraduzAí — Tradutor de Arquivos</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link href="{% static 'core/css/style.css' %}" rel="stylesheet" />
+        <link href="{% static 'core/css/index.css' %}" rel="stylesheet" />
+    </head>
 
-  <body>
-    <main class="page-wrapper">
-      <div class="card">
-        <div class="logo">
-          <div class="logo-icon"><i data-lucide="languages"></i></div>
-          <h1>TraduzAí</h1>
-        </div>
-        <p class="subtitle">
-          Traduza arquivos .txt e .pdf do inglês para o português
-        </p>
+    <body>
+        <main class="page-wrapper">
+            <div class="card">
+                <div class="logo">
+                    <div class="logo-icon"><i data-lucide="languages"></i></div>
+                    <h1>TraduzAí</h1>
+                </div>
+                <p class="subtitle">Traduza arquivos .txt e .pdf do inglês para o português</p>
 
-        {% if error %}
-        <div class="alert alert-error">
-          <i data-lucide="alert-triangle"></i>{{ error }}
-        </div>
-        {% endif %}
+                {% if error %}
+                <div class="alert alert-error"><i data-lucide="alert-triangle"></i>{{ error }}</div>
+                {% endif %}
 
-        <form
-          method="POST"
-          enctype="multipart/form-data"
-          action="{% url 'translate' %}"
-          id="upload-form"
-        >
-          {% csrf_token %}
+                <form
+                    method="POST"
+                    enctype="multipart/form-data"
+                    action="{% url 'translate' %}"
+                    id="upload-form"
+                >
+                    {% csrf_token %}
 
-          <label class="upload-area" id="upload-area">
-            <input
-              type="file"
-              name="file"
-              accept=".txt,.pdf"
-              required
-              id="file-input"
-            />
-            <div class="upload-icon"><i data-lucide="upload-cloud"></i></div>
-            <h3>Arraste seu arquivo aqui</h3>
-            <p>ou clique para selecionar &mdash; .txt ou .pdf</p>
-          </label>
+                    <label class="upload-area" id="upload-area">
+                        <input
+                            type="file"
+                            name="file"
+                            accept=".txt,.pdf"
+                            required
+                            id="file-input"
+                        />
+                        <div class="upload-icon"><i data-lucide="upload-cloud"></i></div>
+                        <h3>Arraste seu arquivo aqui</h3>
+                        <p>ou clique para selecionar &mdash; .txt ou .pdf</p>
+                    </label>
 
-          <div class="upload-file-info" id="file-info">
-            <i data-lucide="file-text" id="file-icon"></i>
-            <span id="file-name"></span>
-            <span class="file-badge" id="file-badge"></span>
-          </div>
+                    <div class="upload-file-info" id="file-info">
+                        <i data-lucide="file-text" id="file-icon"></i>
+                        <span id="file-name"></span>
+                        <span class="file-badge" id="file-badge"></span>
+                    </div>
 
-          <div class="pdf-notice" id="pdf-notice">
-            <i data-lucide="info"></i>
-            PDFs grandes podem demorar alguns minutos. Não feche a página.
-          </div>
+                    <div class="pdf-notice" id="pdf-notice">
+                        <i data-lucide="info"></i>
+                        PDFs grandes podem demorar alguns minutos. Não feche a página.
+                    </div>
 
-          <button type="submit" class="btn btn-primary" id="submit-btn">
-            <span class="spinner"></span>
-            <span class="btn-label">Traduzir arquivo</span>
-          </button>
-        </form>
-      </div>
-    </main>
+                    <button type="submit" class="btn btn-primary" id="submit-btn">
+                        <span class="spinner"></span>
+                        <span class="btn-label">Traduzir arquivo</span>
+                    </button>
+                </form>
+            </div>
+        </main>
 
-    <footer>
-      Feito com <i data-lucide="heart"></i> — <span>TraduzAí</span>
-    </footer>
+        <footer>Feito com <i data-lucide="heart"></i> — <span>TraduzAí</span></footer>
 
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script>
-      lucide.createIcons();
+        <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+        <script>
+            lucide.createIcons();
 
-      const input = document.getElementById("file-input");
-      const fileInfo = document.getElementById("file-info");
-      const fileName = document.getElementById("file-name");
-      const fileBadge = document.getElementById("file-badge");
-      const pdfNotice = document.getElementById("pdf-notice");
-      const area = document.getElementById("upload-area");
-      const form = document.getElementById("upload-form");
-      const btn = document.getElementById("submit-btn");
+            const input = document.getElementById('file-input');
+            const fileInfo = document.getElementById('file-info');
+            const fileName = document.getElementById('file-name');
+            const fileBadge = document.getElementById('file-badge');
+            const pdfNotice = document.getElementById('pdf-notice');
+            const area = document.getElementById('upload-area');
+            const form = document.getElementById('upload-form');
+            const btn = document.getElementById('submit-btn');
 
-      function updateFileDisplay(file) {
-        if (!file) return;
-        const ext = file.name.split(".").pop().toLowerCase();
-        fileName.textContent = file.name;
-        fileBadge.textContent = ext.toUpperCase();
-        fileBadge.className = "file-badge file-badge--" + ext;
-        fileInfo.classList.add("visible");
-        pdfNotice.classList.toggle("visible", ext === "pdf");
-        lucide.createIcons();
-      }
+            function updateFileDisplay(file) {
+                if (!file) return;
+                const ext = file.name.split('.').pop().toLowerCase();
+                fileName.textContent = file.name;
+                fileBadge.textContent = ext.toUpperCase();
+                fileBadge.className = 'file-badge file-badge--' + ext;
+                fileInfo.classList.add('visible');
+                pdfNotice.classList.toggle('visible', ext === 'pdf');
+                lucide.createIcons();
+            }
 
-      input.addEventListener("change", () => {
-        if (input.files.length > 0) updateFileDisplay(input.files[0]);
-      });
+            input.addEventListener('change', () => {
+                if (input.files.length > 0) updateFileDisplay(input.files[0]);
+            });
 
-      area.addEventListener("dragover", (e) => {
-        e.preventDefault();
-        area.classList.add("drag-over");
-      });
+            area.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                area.classList.add('drag-over');
+            });
 
-      area.addEventListener("dragleave", () =>
-        area.classList.remove("drag-over"),
-      );
+            area.addEventListener('dragleave', () => area.classList.remove('drag-over'));
 
-      area.addEventListener("drop", (e) => {
-        e.preventDefault();
-        area.classList.remove("drag-over");
-        const files = e.dataTransfer.files;
-        if (files.length > 0) {
-          const dt = new DataTransfer();
-          dt.items.add(files[0]);
-          input.files = dt.files;
-          updateFileDisplay(files[0]);
-        }
-      });
+            area.addEventListener('drop', (e) => {
+                e.preventDefault();
+                area.classList.remove('drag-over');
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    const dt = new DataTransfer();
+                    dt.items.add(files[0]);
+                    input.files = dt.files;
+                    updateFileDisplay(files[0]);
+                }
+            });
 
-      form.addEventListener("submit", () => {
-        btn.classList.add("loading");
-        btn.disabled = true;
-      });
-    </script>
-  </body>
+            form.addEventListener('submit', () => {
+                btn.classList.add('loading');
+                btn.disabled = true;
+            });
+        </script>
+    </body>
 </html>

@@ -113,3 +113,7 @@ def download(request, token: str):
         as_attachment=True,
         filename=entry['filename'],
     )
+
+
+def page_not_found(request, exception):
+    return render(request, 'core/404.html', status=404)

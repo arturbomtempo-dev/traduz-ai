@@ -1,0 +1,50 @@
+.error-page {
+    text-align: center;
+}
+
+.error-icon {
+    width: 72px;
+    height: 72px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.error-icon svg {
+    width: 34px;
+    height: 34px;
+    color: var(--accent-to);
+}
+
+.error-code {
+    font-size: 88px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -4px;
+    background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+}
+
+.error-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.error-description {
+    font-size: 15px;
+    margin-bottom: 32px;
+}
+
+.error-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}

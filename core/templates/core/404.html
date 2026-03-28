@@ -1,0 +1,54 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TraduzAí — Página não encontrada</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link href="{% static 'core/css/style.css' %}" rel="stylesheet" />
+        <link href="{% static 'core/css/404.css' %}" rel="stylesheet" />
+    </head>
+
+    <body>
+        <main class="page-wrapper">
+            <div class="card error-page">
+                <div class="logo">
+                    <div class="logo-icon"><i data-lucide="languages"></i></div>
+                    <h1>TraduzAí</h1>
+                </div>
+
+                <hr class="divider" />
+
+                <div class="error-icon">
+                    <i data-lucide="file-search-2"></i>
+                </div>
+
+                <p class="error-code">404</p>
+
+                <h2 class="error-title">Página não encontrada</h2>
+                <p class="error-description">
+                    O endereço que você acessou não existe ou foi removido.
+                </p>
+
+                <div class="error-actions">
+                    <a href="/" class="btn btn-accent">
+                        <i data-lucide="house"></i> Ir para o início
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <footer>Feito com <i data-lucide="heart"></i> — <span>TraduzAí</span></footer>
+
+        <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+        <script>
+            lucide.createIcons();
+        </script>
+    </body>
+</html>
