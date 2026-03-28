@@ -6,8 +6,7 @@ import uuid
 from deep_translator import GoogleTranslator
 from django.core.cache import cache
 from django.http import FileResponse, Http404
-from django.shortcuts import render
-from django.views.decorators.http import require_POST
+from django.shortcuts import redirect, render
 
 from .services.pdf_translator import translate_pdf_bytes
 
@@ -38,8 +37,10 @@ def index(request):
     return render(request, 'index.html')
 
 
-@require_POST
 def translate(request):
+    if request.method == 'GET':
+        return redirect('index')
+
     file_obj = request.FILES.get('file')
     error = _validate_upload(file_obj)
     if error:
