@@ -1,0 +1,58 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block title %}Tradutor de Arquivos | TraduzAí{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'core/css/index.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="logo">
+        <div class="logo-icon"><i data-lucide="languages"></i></div>
+        <h1>TraduzAí</h1>
+    </div>
+    <p class="subtitle">Traduza arquivos .txt e .pdf do inglês para o português</p>
+
+    {% if error %}
+    <div class="alert alert-error"><i data-lucide="alert-triangle"></i>{{ error }}</div>
+    {% endif %}
+
+    <form
+        method="POST"
+        enctype="multipart/form-data"
+        action="{% url 'translate' %}"
+        id="upload-form"
+    >
+        {% csrf_token %}
+
+        <label class="upload-area" id="upload-area">
+            <input type="file" name="file" accept=".txt,.pdf" required id="file-input" />
+            <div class="upload-icon"><i data-lucide="upload-cloud"></i></div>
+            <h3>Arraste seu arquivo aqui</h3>
+            <p>ou clique para selecionar &mdash; .txt ou .pdf</p>
+        </label>
+
+        <div class="upload-file-info" id="file-info">
+            <i data-lucide="file-text" id="file-icon"></i>
+            <span id="file-name"></span>
+            <span class="file-badge" id="file-badge"></span>
+        </div>
+
+        <div class="pdf-notice" id="pdf-notice">
+            <i data-lucide="info"></i>
+            PDFs grandes podem demorar alguns minutos. Não feche a página.
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submit-btn">
+            <span class="spinner"></span>
+            <span class="btn-label">Traduzir arquivo</span>
+        </button>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'core/js/index.js' %}" defer></script>
+{% endblock %}

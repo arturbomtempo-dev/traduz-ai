@@ -170,3 +170,13 @@ footer span {
     font-weight: 600;
     color: var(--text-primary);
 }
+
+footer a {
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: var(--text-primary);
+}

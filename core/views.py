@@ -35,7 +35,7 @@ def _validate_upload(file_obj) -> str | None:
 
 
 def index(request):
-    return render(request, 'core/index.html')
+    return render(request, 'index.html')
 
 
 @require_POST
@@ -43,7 +43,7 @@ def translate(request):
     file_obj = request.FILES.get('file')
     error = _validate_upload(file_obj)
     if error:
-        return render(request, 'core/index.html', {'error': error})
+        return render(request, 'index.html', {'error': error})
 
     ext = _get_extension(file_obj.name)
 
@@ -56,7 +56,7 @@ def translate(request):
         logger.exception('Translation failed for %s', file_obj.name)
         return render(
             request,
-            'core/index.html',
+            'index.html',
             {'error': f'Erro durante a tradução: {exc}'},
         )
 
@@ -67,7 +67,7 @@ def _handle_txt(request, file_obj):
     output_name = f'translated_{file_obj.name}'
     return render(
         request,
-        'core/result.html',
+        'result.html',
         {
             'type': 'txt',
             'text': translated,
@@ -90,7 +90,7 @@ def _handle_pdf(request, file_obj):
 
     return render(
         request,
-        'core/result.html',
+        'result.html',
         {
             'type': 'pdf',
             'token': token,
@@ -116,4 +116,4 @@ def download(request, token: str):
 
 
 def page_not_found(request, exception):
-    return render(request, 'core/404.html', status=404)
+    return render(request, '404.html', status=404)
