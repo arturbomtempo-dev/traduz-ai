@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "traduzai"
+version = "1.0.0"
+description = "Professional PDF/TXT translator with layout preservation"
+requires-python = ">=3.14"
+authors = [{name = "TraduzAí", email = "contact@traduzai.local"}]
+license = {text = "MIT"}
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "I"]
+ignore = ["E501", "W292"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["core", "traduz__ai"]

@@ -1,6 +1,3 @@
-# ==========================================
-# PYTHON & VIRTUAL ENVIRONMENTS
-# ==========================================
 venv/
 env/
 ENV/
@@ -30,27 +27,17 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# ==========================================
-# DJANGO SPECIFIC
-# ==========================================
 db.sqlite3
 db.sqlite3-journal
 /media
-/static
 *.log
 local_settings.py
 
-# ==========================================
-# ENVIRONMENT VARIABLES
-# ==========================================
 .env
 .env.local
 .env.*.local
 .env.production.local
 
-# ==========================================
-# IDE & EDITORS
-# ==========================================
 .vscode/
 .idea/
 *.swp
@@ -62,9 +49,6 @@ local_settings.py
 *.sublime-project
 *.sublime-workspace
 
-# ==========================================
-# TESTING
-# ==========================================
 .pytest_cache/
 .coverage
 htmlcov/
@@ -74,9 +58,6 @@ htmlcov/
 .nosetests.cfg
 .nox/
 
-# ==========================================
-# SYSTEM & OS
-# ==========================================
 .DS_Store
 Thumbs.db
 .DS_Store?
@@ -85,8 +66,5 @@ Thumbs.db
 .Trashes
 ehthumbs.db
 
-# ==========================================
-# GIT
-# ==========================================
 .git
 .gitkeep
