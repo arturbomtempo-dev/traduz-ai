@@ -1,4 +1,4 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% load static %}
 
 {% block title %}Tradução Concluída | TraduzAí{% endblock %}
@@ -10,8 +10,8 @@
 {% block content %}
 <div class="card" data-page-type="{{ type }}">
     <div class="logo">
-        <div class="logo-icon"><i data-lucide="languages"></i></div>
-        <h1>TraduzAí</h1>
+        <div class="logo-icon"><i data-lucide="globe"></i></div>
+        <h1>Traduz<span class="brand-accent">Aí</span></h1>
     </div>
 
     <hr class="divider" />
@@ -63,7 +63,7 @@
         <a href="/" class="btn btn-secondary"> <i data-lucide="arrow-left"></i> Traduzir outro </a>
     </div>
 </div>
-{% endblock %} 
+{% endblock %}
 
 {% block extra_js %}
 <script src="{% static 'core/js/result.js' %}" defer></script>

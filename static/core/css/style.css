@@ -1,13 +1,13 @@
 :root {
-    --bg-deep: #020617;
-    --bg-card: #0f172a;
-    --bg-gradient-start: #0f172a;
-    --bg-gradient-end: #1e293b;
-    --border: #334155;
+    --bg-deep: #030712;
+    --bg-card: #111827;
+    --bg-gradient-start: #111827;
+    --bg-gradient-end: #1f2937;
+    --border: #374151;
     --text-primary: #f1f5f9;
     --text-muted: #94a3b8;
     --accent-from: #3b82f6;
-    --accent-to: #6366f1;
+    --accent-to: #7c3aed;
     --radius-card: 16px;
     --radius-base: 8px;
     --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.5);
@@ -55,6 +55,13 @@ body {
 .logo h1 {
     font-size: 28px;
     font-weight: 700;
+}
+
+.brand-accent {
+    background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .logo-icon {
