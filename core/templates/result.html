@@ -23,7 +23,7 @@
         <div class="result-header-text">
             <h2>Tradução concluída</h2>
             {% if type == 'pdf' %}
-            <p>Layout preservado &mdash; pronto para download</p>
+            <p>Layout preservado. Pronto para download</p>
             {% else %}
             <p>Confira o texto abaixo ou baixe o arquivo</p>
             {% endif %}
@@ -64,7 +64,7 @@
     </div>
 </div>
 {% endblock %}
-
+    
 {% block extra_js %}
 <script src="{% static 'core/js/result.js' %}" defer></script>
 {% endblock %}
