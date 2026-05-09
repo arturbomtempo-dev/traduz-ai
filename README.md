@@ -27,7 +27,7 @@ A fast, layout-preserving document translator. Upload a PDF or TXT file in Engli
 | Frontend    | HTML, CSS, JavaScript                  |
 | Deploy      | Render                                 |
 
-## Getting Started
+## Getting Started (Preferably using Git Bash)
 
 ```bash
 git clone https://github.com/arturbomtempo-dev/traduz-ai.git
