@@ -30,14 +30,20 @@ A fast, layout-preserving document translator. Upload a PDF or TXT file in Engli
 ## Getting Started
 
 ```bash
-git clone https://github.comarturbomtempo-dev/traduz-ai.git
+git clone https://github.com/arturbomtempo-dev/traduz-ai.git
 cd traduz-ai
+
+cat > .env <<EOF
+DEBUG=True
+SECRET_KEY=2xY8mQ9vL3kP7sR1nT6aF0wZ4cH8uJ5eB2gD9qM1rX7pK4vN
+EOF
+
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 python manage.py runserver
 ```
 
-Open [http://localhost:8000](http://localhost:8000) in your browser.
+Open [http://127.0.0.1:8000/translate/](http://127.0.0.1:8000/translate/) in your browser.
 
 ## License
 
